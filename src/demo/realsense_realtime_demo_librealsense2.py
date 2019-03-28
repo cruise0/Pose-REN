@@ -19,12 +19,12 @@ def init_device():
     pipeline = rs.pipeline()
     config = rs.config()
     config.enable_stream(rs.stream.depth, 640, 480, rs.format.z16, 30)
-    print 'config'
+    print ('config')
     # Start streaming
     profile = pipeline.start(config)
     depth_sensor = profile.get_device().first_depth_sensor()
     depth_scale = depth_sensor.get_depth_scale()
-    print "Depth Scale is: " , depth_scale
+    print ("Depth Scale is: " , depth_scale)
     return pipeline, depth_scale
 
 def stop_device(pipeline):
